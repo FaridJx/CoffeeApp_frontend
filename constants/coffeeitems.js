@@ -1,31 +1,6 @@
-// Création de catégorie de café
+ // Création de cafés 
 
-export const categories = [
-    {
-      id: 1,
-      title: "Cappuccino",
-    },
-    {
-      id: 2,
-      title: "Latte",
-    },
-    {
-      id: 3,
-      title: "Espresso",
-    },
-    {
-      id: 4,
-      title: "Mocha",
-    },
-    {
-      id: 5,
-      title: "Americano",
-    },
-  ];
-  
-  // Création de cafés 
-
-  export const coffeeItems = [
+ export const coffeeItems = [
     {
       id: 1,
       name: 'Black Coffee',
