@@ -44,7 +44,7 @@ export default function HomeScreen({ navigation }) {
               <FontAwesome name={"map-marker"} size={30} color={"#D4A574"} />
               <Text style={styles.spaceLocation}>Asnières-sur-seine, ASN</Text>
             </View>
-            <FontAwesome name={"bell"} size={25} color={"red"} />
+            <FontAwesome name={"bell-o"} size={25} color={"#D4A574"} />
           </View>
           {/* search bar */}
         <View className="mx-5 shadow" style={{ marginTop: height * 0.06 }}>
@@ -103,6 +103,7 @@ export default function HomeScreen({ navigation }) {
            /> */}
           <Carousel
             data={coffeeItems}
+            loop={true}
             renderItem={({ item }) => <CoffeeCard item={item} />}
             firstItem={1}
             inactiveSlideOpacity={0.75} // opacité de la slide inactif
