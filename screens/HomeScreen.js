@@ -23,9 +23,7 @@ const { width, height } = Dimensions.get("window");
 export default function HomeScreen({ navigation }) {
   const [activeCategory, setActiveCategory] = useState(1);
 
-  const renderItem = ({ item, index }) => {
-    return <CoffeeCard item={item} />;
-  };
+
 
   return (
     <View className="flex-1 relative bg-white ">
@@ -35,18 +33,22 @@ export default function HomeScreen({ navigation }) {
         source={require("../assets/images/beansBackground1.png")}
       />
       <SafeAreaView>
-          <View className="mx-4 flex-row justify-between items-center">
+        <View className="mx-4 flex-row justify-between items-center">
+          <TouchableOpacity>
             <Image
               className="h-9 w-9 rounded-full"
               source={require("../assets/images/avatar.png")}
-            ></Image>
-            <View className="flex-row items-center space-x-2">
-              <FontAwesome name={"map-marker"} size={30} color={"#D4A574"} />
-              <Text style={styles.spaceLocation}>Asnières-sur-seine, ASN</Text>
-            </View>
-            <FontAwesome name={"bell-o"} size={25} color={"#D4A574"} />
+            />
+          </TouchableOpacity>
+          <View className="flex-row items-center space-x-2">
+            <FontAwesome name={"map-marker"} size={30} color={"#D4A574"} />
+            <Text style={styles.spaceLocation}>Asnières-sur-seine, ASN</Text>
           </View>
-          {/* search bar */}
+          <TouchableOpacity>
+            <FontAwesome name={"heart"} size={25} color={"#D4A574"} />
+          </TouchableOpacity>
+        </View>
+        {/* search bar */}
         <View className="mx-5 shadow" style={{ marginTop: height * 0.06 }}>
           <View className="flex-row items-center rounded-full p-1 bg-[#e6e6e6]">
             <TextInput
@@ -63,7 +65,7 @@ export default function HomeScreen({ navigation }) {
         </View>
 
         {/* Catégorie */}
-        <View className='px-5 mt-6'>
+        <View className="px-5 mt-6">
           <FlatList
             horizontal
             showsHorizontalScrollIndicator={false}
@@ -90,29 +92,17 @@ export default function HomeScreen({ navigation }) {
 
         {/* Coffee card */}
         <View className="mt-4 py-2 ">
-          {/* <Carousel
-           containerCustomStyle={{overflow:'visible'}}
-            data={coffeeItems}
-            renderItem={({item}) => <CoffeeCard item={item} />}
-            firstItem={1}
-            inactiveSlideOpacity={0.75}
-            inactiveSlideScale={0.77}
-            sliderWidth={400}
-            itemWidth={260}
-            slideStyle={{display: "flex", alignItems: "center"}}
-           /> */}
           <Carousel
             data={coffeeItems}
-            loop={true}
+            // loop={true}
             renderItem={({ item }) => <CoffeeCard item={item} />}
-            firstItem={1}
+            firstItem={0}
             inactiveSlideOpacity={0.75} // opacité de la slide inactif
             inactiveSlideScale={0.77} // taille de la slide inactif
-            sliderWidth={400}
+            sliderWidth={400} // largeur de la slide
             itemWidth={260} // largeur de la carte
-            slideStyle={{display: "flex", alignItems: "center"}}
-            />
-          
+            slideStyle={{ display: "flex", alignItems: "center" }}
+          />
         </View>
       </SafeAreaView>
     </View>

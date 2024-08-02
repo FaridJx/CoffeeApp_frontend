@@ -1,8 +1,10 @@
 import { View, Text, Image, TouchableOpacity } from "react-native";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
+import { useNavigation } from '@react-navigation/native';
 import React from "react";
 
 export function CoffeeCard({ item }) {
+  const navigation = useNavigation()
   return (
     <View
       style={{
@@ -14,7 +16,7 @@ export function CoffeeCard({ item }) {
       }}
     >
       <View className="flex-row justify-center -mt-14">
-        <Image source={item.image} className="h-40 w-40 " />
+        <Image source={item.image} className="h-40 w-40" />
       </View>
       <View className="px-5 mt-5 space-y-3">
         <Text className="text-white font-semibold text-2xl">{item.name}</Text>
@@ -35,9 +37,8 @@ export function CoffeeCard({ item }) {
         </View>
         <View style={{elevation: 5}} className='flex-row justify-between items-center'>
           <Text className='font-bold text-white text-lg'>{item.price}€</Text>
-          <TouchableOpacity className='bg-white rounded-full p-4'>
+          <TouchableOpacity onPress={() => navigation.navigate('Product', {...item})} className='bg-white rounded-full p-4'>
             <FontAwesome name={"plus"} size={15} color={"#D4A574"} />
-
           </TouchableOpacity>
         </View>
       </View>
